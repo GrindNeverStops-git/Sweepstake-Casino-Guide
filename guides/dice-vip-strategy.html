@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice VIP Grinding Strategy — Sweepstakes Hustle</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCJCDQRZZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JCJCDQRZZJ');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#0a0c0f;--bg2:#111418;--bg3:#181d24;
+    --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+    --gold:#c9a84c;--gold-dim:#7a5e24;--gold-glow:rgba(201,168,76,0.12);
+    --green:#2ecc71;--red:#e74c3c;--text:#e8eaed;--muted:#6b7280;--muted2:#9ca3af;
+    --font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
+  }
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(10,12,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .nav-logo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-decoration:none;}
+  .nav-links{display:flex;gap:2rem;}
+  .nav-links a{color:var(--muted2);font-size:13px;text-decoration:none;}
+  .nav-links a:hover{color:var(--text);}
+  .breadcrumb{max-width:760px;margin:1.5rem auto 0;padding:0 2rem;font-size:12px;color:var(--muted);}
+  .breadcrumb a{color:var(--muted2);text-decoration:none;}
+  .breadcrumb a:hover{color:var(--gold);}
+  article{max-width:760px;margin:0 auto;padding:2rem;}
+  .article-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--green);background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.25);padding:3px 10px;border-radius:20px;margin-bottom:1rem;}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;color:#fff;margin-bottom:1rem;}
+  .article-sub{color:var(--muted2);font-size:15px;margin-bottom:2.5rem;}
+  h2{font-size:1.3rem;font-weight:600;color:#fff;margin:2.5rem 0 1rem;}
+  p{color:var(--muted2);font-size:15px;margin-bottom:1rem;}
+  strong{color:var(--text);font-weight:600;}
+  ol,ul{color:var(--muted2);font-size:15px;margin:0 0 1rem 1.25rem;}
+  li{margin-bottom:8px;}
+  .tip{display:block;margin:1.5rem 0;background:var(--gold-glow);border-left:2px solid var(--gold);padding:12px 16px;border-radius:0 4px 4px 0;font-size:14px;color:var(--muted2);}
+  .tip strong{color:var(--gold);}
+  .warn{display:block;margin:1.5rem 0;background:rgba(231,76,60,0.08);border-left:2px solid var(--red);padding:12px 16px;border-radius:0 4px 4px 0;font-size:14px;color:var(--muted2);}
+  .warn strong{color:var(--red);}
+  .config-box{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0;}
+  .config-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;}
+  .config-row:last-child{border-bottom:none;}
+  .config-row span:first-child{color:var(--muted);}
+  .config-row span:last-child{color:var(--gold);font-family:var(--mono);font-weight:600;}
+  table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:13px;}
+  th{background:var(--bg3);color:var(--muted);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:10px;text-align:left;border:1px solid var(--border2);}
+  td{padding:10px;border:1px solid var(--border);color:var(--text);font-size:13px;font-family:var(--mono);}
+  .stat-row{display:flex;gap:12px;flex-wrap:wrap;margin:1.5rem 0;}
+  .stat-box{flex:1;min-width:130px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center;}
+  .stat-num{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--green);}
+  .stat-label{font-size:11px;color:var(--muted);margin-top:4px;}
+  footer{border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;margin-top:3rem;}
+  @media(max-width:600px){nav{padding:0 1rem;}.nav-links{display:none;}article{padding:1.5rem 1.25rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">SWEEPSTAKES HUSTLE</a>
+  <div class="nav-links">
+    <a href="../index.html">Overview</a>
+    <a href="../tracker.html">Tracker</a>
+    <a href="../guides.html">Game Guides</a>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="../guides.html">Game Guides</a> / Dice VIP Grinding Strategy</div>
+
+<article>
+  <span class="article-tag">GAME STRATEGY</span>
+  <h1>High-RTP Dice VIP Grinding Strategy</h1>
+  <p class="article-sub">A controlled, low-risk way to grind through Stake.us and similar sites' VIP wager requirements for a small, predictable cost.</p>
+
+  <p>This isn't a profit strategy — it's a cheap, controlled way to put up the wager volume needed to unlock your first VIP tier. By stacking a very safe dice bet with a capped martingale system, you can push thousands of SC in volume through your account while only risking a small, predictable amount.</p>
+
+  <h2>Why This Works</h2>
+  <p>Most games sit around 95-98% RTP. A dice bet set to a high win-chance threshold can push that above 99%, making it one of the most efficient ways to generate wager volume without meaningfully touching your balance.</p>
+  <ul>
+    <li>You bet on a very safe outcome with a high win chance</li>
+    <li>A small, capped martingale recovers losses quickly when they happen</li>
+    <li>The result is high wager volume with very low net cost</li>
+  </ul>
+
+  <h2>Dice Setup</h2>
+  <div class="config-box">
+    <div class="config-row"><span>Game Mode</span><span>Dice</span></div>
+    <div class="config-row"><span>Roll Over</span><span>2.00 (≈98% win chance)</span></div>
+    <div class="config-row"><span>Base Bet</span><span>0.01 SC</span></div>
+    <div class="config-row"><span>Auto Mode</span><span>ON</span></div>
+  </div>
+
+  <h2>Auto Bet Configuration</h2>
+  <div class="config-box">
+    <div class="config-row"><span>Number of Rolls</span><span>Infinity / Max</span></div>
+    <div class="config-row"><span>On Win</span><span>Reset to base bet</span></div>
+    <div class="config-row"><span>On Loss</span><span>Increase bet 10x</span></div>
+  </div>
+
+  <p>Every loss bumps the bet up by 10x, which recovers the loss quickly on the next win while still racking up wager volume the whole time.</p>
+
+  <table>
+    <tr><th>Loss Streak</th><th>Bet Size</th></tr>
+    <tr><td>1st bet</td><td>0.01 SC</td></tr>
+    <tr><td>After 1st loss</td><td>0.11 SC</td></tr>
+    <tr><td>After 2nd loss</td><td>1.21 SC</td></tr>
+    <tr><td>After 3rd loss</td><td>13.31 SC</td></tr>
+  </table>
+
+  <div class="warn"><strong>Safety limit:</strong> A 4th consecutive loss would jump the bet above 100 SC. Keep your total balance under 100 SC so autoplay stops itself before that happens, and stop manually if you ever hit 3 losses in a row — reset back to the 0.01 SC base bet and start fresh.</div>
+
+  <h2>Speed Settings</h2>
+  <p>To get through the wager requirement faster: max out the spin speed, turn off animations, and if you've unlocked Bronze VIP already, switch to Instant Mode for the fastest possible pace.</p>
+
+  <h2>What This Actually Costs</h2>
+  <div class="stat-row">
+    <div class="stat-box"><div class="stat-num">7,000 SC</div><div class="stat-label">wager for first VIP tier (typical)</div></div>
+    <div class="stat-box"><div class="stat-num">~70-100 SC</div><div class="stat-label">expected net cost</div></div>
+    <div class="stat-box"><div class="stat-num">99%</div><div class="stat-label">effective RTP</div></div>
+  </div>
+
+  <p>You're effectively paying a small, fixed fee to unlock VIP-tier rakeback and bonuses. Most players recoup that cost within a month or two through the improved daily/weekly rewards that come with VIP status, after which everything from that tier is pure upside.</p>
+
+  <h2>Why This Is Considered Safe</h2>
+  <ul>
+    <li><strong>High win chance</strong> keeps individual losses rare</li>
+    <li><strong>Capped martingale</strong> prevents runaway bet sizes if you follow the reset rule</li>
+    <li><strong>Predictable cost</strong> — you know roughly what you'll spend before you start</li>
+  </ul>
+
+  <div class="tip"><strong>Think of it like:</strong> a one-time, small upfront cost to unlock a long-term passive income boost. The wager requirement is the price of admission to better rakeback and bonuses going forward.</div>
+
+  <p><a href="../tracker.html" style="color:var(--gold);text-decoration:none;font-size:14px;">→ Find these sites in the Site Tracker</a></p>
+  <p><a href="../guides.html" style="color:var(--gold);text-decoration:none;font-size:14px;">← Back to all guides</a></p>
+</article>
+
+<footer>SWEEPSTAKES HUSTLE &nbsp;·&nbsp; UPDATED REGULARLY &nbsp;·&nbsp; USA ONLY</footer>
+
+</body>
+</html>

@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackjack Basic Strategy — Sweepstakes Hustle</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCJCDQRZZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JCJCDQRZZJ');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#0a0c0f;--bg2:#111418;--bg3:#181d24;
+    --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+    --gold:#c9a84c;--gold-dim:#7a5e24;--gold-glow:rgba(201,168,76,0.12);
+    --green:#2ecc71;--red:#e74c3c;--text:#e8eaed;--muted:#6b7280;--muted2:#9ca3af;
+    --font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
+  }
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(10,12,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .nav-logo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-decoration:none;}
+  .nav-links{display:flex;gap:2rem;}
+  .nav-links a{color:var(--muted2);font-size:13px;text-decoration:none;}
+  .nav-links a:hover{color:var(--text);}
 
+  .breadcrumb{max-width:760px;margin:1.5rem auto 0;padding:0 2rem;font-size:12px;color:var(--muted);}
+  .breadcrumb a{color:var(--muted2);text-decoration:none;}
+  .breadcrumb a:hover{color:var(--gold);}
+
+  article{max-width:760px;margin:0 auto;padding:2rem;}
+  .article-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--green);background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.25);padding:3px 10px;border-radius:20px;margin-bottom:1rem;}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;color:#fff;margin-bottom:1rem;}
+  .article-sub{color:var(--muted2);font-size:15px;margin-bottom:2.5rem;}
+
+  h2{font-size:1.3rem;font-weight:600;color:#fff;margin:2.5rem 0 1rem;}
+  p{color:var(--muted2);font-size:15px;margin-bottom:1rem;}
+  strong{color:var(--text);font-weight:600;}
+
+  .tip{display:block;margin:1.5rem 0;background:var(--gold-glow);border-left:2px solid var(--gold);padding:12px 16px;border-radius:0 4px 4px 0;font-size:14px;color:var(--muted2);}
+  .tip strong{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:13px;}
+  th{background:var(--bg3);color:var(--muted);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:8px;text-align:center;border:1px solid var(--border2);}
+  td{padding:8px;text-align:center;border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;}
+  .h{background:rgba(46,204,113,0.12);color:var(--green);font-weight:700;}
+  .s{background:rgba(231,76,60,0.12);color:var(--red);font-weight:700;}
+  .d{background:rgba(201,168,76,0.15);color:var(--gold);font-weight:700;}
+  .row-label{background:var(--bg3);color:var(--text);font-family:var(--font);font-weight:600;}
+
+  .legend-row{display:flex;gap:16px;flex-wrap:wrap;margin:1rem 0 2rem;font-size:12px;}
+  .legend-row span{display:flex;align-items:center;gap:6px;color:var(--muted2);}
+  .legend-row .sw{width:14px;height:14px;border-radius:3px;display:inline-block;}
+
+  footer{border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;margin-top:3rem;}
+
+  @media(max-width:600px){
+    nav{padding:0 1rem;}
+    .nav-links{display:none;}
+    article{padding:1.5rem 1.25rem;}
+    table{font-size:11px;}
+    th,td{padding:5px 3px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">SWEEPSTAKES HUSTLE</a>
+  <div class="nav-links">
+    <a href="../index.html">Overview</a>
+    <a href="../tracker.html">Tracker</a>
+    <a href="../guides.html">Game Guides</a>
+  </div>
+</nav>
+
+<div class="breadcrumb"><a href="../guides.html">Game Guides</a> / Blackjack Basic Strategy</div>
+
+<article>
+  <span class="article-tag">GAME STRATEGY</span>
+  <h1>Blackjack Basic Strategy</h1>
+  <p class="article-sub">The exact play for every hand. Memorize this and you'll wash playthrough requirements with the lowest possible losses.</p>
+
+  <p>Basic strategy is a fixed set of rules that tells you the mathematically correct play for every hand you'll ever be dealt. It doesn't guarantee wins, but it minimizes the house edge down to around 0.5%, which makes it the single best game for clearing playthrough requirements with minimal losses.</p>
+
+  <div class="tip"><strong>How to use this:</strong> Find your hand total in the left column, then find the dealer's up card across the top. The cell where they meet tells you what to do.</div>
+
+  <h2>Hard Totals (no Ace, or Ace counted as 1)</h2>
+  <div class="legend-row">
+    <span><span class="sw h" style="background:rgba(46,204,113,0.3)"></span> Hit</span>
+    <span><span class="sw s" style="background:rgba(231,76,60,0.3)"></span> Stand</span>
+    <span><span class="sw d" style="background:rgba(201,168,76,0.3)"></span> Double if allowed, otherwise Hit</span>
+  </div>
+  <table>
+    <tr><th>Your Hand</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>A</th></tr>
+    <tr><td class="row-label">8 or less</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">9</td><td class="h">H</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">10</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">11</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="h">H</td></tr>
+    <tr><td class="row-label">12</td><td class="h">H</td><td class="h">H</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">13</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">14</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">15</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">16</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">17+</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td></tr>
+  </table>
+
+  <h2>Soft Totals (hand includes an Ace counted as 11)</h2>
+  <table>
+    <tr><th>Your Hand</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>A</th></tr>
+    <tr><td class="row-label">A,2 - A,3</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="d">D</td><td class="d">D</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">A,4 - A,5</td><td class="h">H</td><td class="h">H</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">A,6</td><td class="h">H</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">A,7</td><td class="s">S</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="d">D</td><td class="s">S</td><td class="s">S</td><td class="h">H</td><td class="h">H</td><td class="h">H</td></tr>
+    <tr><td class="row-label">A,8+</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td><td class="s">S</td></tr>
+  </table>
+
+  <h2>Why this matters for washing</h2>
+  <p>When you're clearing a playthrough requirement, every hand you play is exposure to risk. Basic strategy keeps that risk as close to neutral as mathematically possible. Combined with small bet sizes spread across many hands, this is the most reliable way to clear requirements without giving back a big chunk of your bonus.</p>
+
+  <div class="tip"><strong>Reminder:</strong> Bet small and play many hands. $1 across 100 hands beats $20 across 5 hands every time when it comes to minimizing variance.</div>
+
+  <p><a href="../index.html" style="color:var(--gold);text-decoration:none;font-size:14px;">← Back to the full guide</a></p>
+</article>
+
+<footer>SWEEPSTAKES HUSTLE &nbsp;·&nbsp; UPDATED REGULARLY &nbsp;·&nbsp; USA ONLY</footer>
+
+</body>
+</html>
