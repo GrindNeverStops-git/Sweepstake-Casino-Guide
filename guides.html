@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guides — Sweepstakes Hustle</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCJCDQRZZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JCJCDQRZZJ');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#0a0c0f;--bg2:#111418;--bg3:#181d24;
+    --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+    --gold:#c9a84c;--gold-dim:#7a5e24;--gold-glow:rgba(201,168,76,0.12);
+    --green:#2ecc71;--text:#e8eaed;--muted:#6b7280;--muted2:#9ca3af;
+    --font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
+  }
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;min-height:100vh;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(10,12,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .nav-logo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-decoration:none;}
+  .nav-links{display:flex;gap:2rem;}
+  .nav-links a{color:var(--muted2);font-size:13px;text-decoration:none;transition:color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text);}
+  .nav-links a.active{color:var(--gold);}
+  .nav-cta{background:var(--gold);color:#0a0c0f;font-size:12px;font-weight:700;letter-spacing:.05em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+
+  .page-header{padding:4rem 2rem 2rem;max-width:900px;margin:0 auto;text-align:center;}
+  .page-eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:4px 14px;border-radius:2px;margin-bottom:1.5rem;}
+  .page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#fff;margin-bottom:1rem;}
+  .page-header p{color:var(--muted2);font-size:15px;max-width:540px;margin:0 auto;}
+
+  .guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto;padding:2rem;}
+  .guide-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.75rem;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
+  .guide-card:hover{border-color:var(--gold-dim);transform:translateY(-2px);}
+  .guide-card-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--green);background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.25);padding:3px 10px;border-radius:20px;margin-bottom:1rem;width:fit-content;}
+  .guide-card h2{font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:8px;}
+  .guide-card p{font-size:13px;color:var(--muted2);line-height:1.55;flex:1;}
+  .guide-card-footer{margin-top:1.25rem;font-family:var(--mono);font-size:11px;color:var(--gold);display:flex;align-items:center;gap:6px;}
+
+  footer{border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;}
+
+  @media(max-width:600px){
+    nav{padding:0 1rem;}
+    .nav-links{display:none;}
+    .page-header{padding:3rem 1.25rem 1.5rem;}
+    .guides-grid{padding:1.5rem 1.25rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">SWEEPSTAKES HUSTLE</a>
+  <div class="nav-links">
+    <a href="index.html">Overview</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="guides.html" class="active">Game Guides</a>
+  </div>
+  <a class="nav-cta" href="tracker.html">View Sites</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Strategy Library</div>
+  <h1>In-Depth Guides</h1>
+  <p>Deeper strategy breakdowns for specific games and sites. Start with the basics, then come back here once you're ready to optimize.</p>
+</div>
+
+<div class="guides-grid">
+
+  <a class="guide-card" href="guides/blackjack-basic-strategy.html">
+    <span class="guide-card-tag">GAME STRATEGY</span>
+    <h2>Blackjack Basic Strategy</h2>
+    <p>The exact hit/stand/double chart that minimizes house edge. Use this every time you wash playthrough on blackjack tables.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+  <a class="guide-card" href="guides/roulette-wash-strategy.html">
+    <span class="guide-card-tag">GAME STRATEGY</span>
+    <h2>Roulette Red/Black Wash</h2>
+    <p>How to clear playthrough requirements with a 98% chance of getting your money back on every spin.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+  <a class="guide-card" href="guides/shuffle-vip-guide.html">
+    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <h2>Shuffle.us VIP Guide</h2>
+    <p>Climb Shuffle's VIP ranks, grind XP efficiently with a Dice strategy, and stack rakeback, bonuses, and Telegram codes.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+  <a class="guide-card" href="guides/crowncoins-vip-guide.html">
+    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <h2>Crown Coins VIP Guide</h2>
+    <p>Stockpile Gold Coins with the Vault Strategy, grind Epic Joker, and stack daily, monthly, and Royal Club rewards.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+  <a class="guide-card" href="guides/modo-vip-guide.html">
+    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <h2>Modo.us VIP Guide</h2>
+    <p>Earn Loyalty Points and Modo Stars, find the best grinding games, and reach Silver VIP for 40+ free SC.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+  <a class="guide-card" href="guides/dice-vip-strategy.html">
+    <span class="guide-card-tag">GAME STRATEGY</span>
+    <h2>Dice VIP Grinding Strategy</h2>
+    <p>A controlled, low-risk martingale dice method for clearing VIP wager requirements on Stake.us and similar sites.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+  <a class="guide-card" href="guides/luckyland-diamond-duck-guide.html">
+    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <h2>LuckyLand Diamond Duck Guide</h2>
+    <p>Land 80 SC for under $2 every month with LuckyLand's repeatable Diamond Duck reward program.</p>
+    <div class="guide-card-footer">Read guide →</div>
+  </a>
+
+</div>
+
+<footer>SWEEPSTAKES HUSTLE &nbsp;·&nbsp; UPDATED REGULARLY &nbsp;·&nbsp; USA ONLY</footer>
+
+</body>
+</html>
