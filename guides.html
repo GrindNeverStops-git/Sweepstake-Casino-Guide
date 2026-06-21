@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  (function(){
+    var saved = localStorage.getItem('sh-theme');
+    if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guides — Sweepstakes Hustle</title>
@@ -22,9 +28,33 @@
     --green:#2ecc71;--green-dim:rgba(46,204,113,0.12);
     --cyan:#3fd0ff;--cyan-dim:rgba(63,208,255,0.18);--cyan-glow:rgba(63,208,255,0.14);
     --warm:#ff9d5c;--warm-dim:rgba(255,157,92,0.22);--warm-glow:rgba(255,157,92,0.15);
-    --text:#e8eaed;--muted:#6b7280;--muted2:#9ca3af;
+    --text:#e8eaed;--heading:#ffffff;--muted:#6b7280;--muted2:#9ca3af;
     --font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
   }
+  html[data-theme="light"] {
+    --bg:#f6f7f9; --bg2:#ffffff; --bg3:#eef0f3;
+    --border:rgba(0,0,0,0.08); --border2:rgba(0,0,0,0.14);
+    --gold-glow:rgba(201,168,76,0.10);
+    --green-dim:rgba(46,204,113,0.10);
+    --cyan-dim:rgba(63,208,255,0.14); --cyan-glow:rgba(63,208,255,0.10);
+    --warm-dim:rgba(255,157,92,0.16); --warm-glow:rgba(255,157,92,0.10);
+    --text:#3a3f47; --heading:#15181d; --muted:#7c8392; --muted2:#5b6270;
+  }
+  html[data-theme="light"] nav { background: rgba(246,247,249,0.85); }
+  html[data-theme="light"] .menu-dropdown { box-shadow: 0 10px 30px -16px rgba(0,0,0,0.15); }
+  html[data-theme="light"] .theme-toggle:hover, html[data-theme="light"] .menu-btn:hover { border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.03); }
+  html[data-theme="light"] .menu-dropdown a:hover { background: rgba(0,0,0,0.04); }
+  .theme-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; background: transparent; color: var(--muted2);
+    border: 1px solid var(--border2); border-radius: 8px; cursor: pointer;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .theme-toggle:hover { color: var(--text); border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+  .theme-toggle .icon-moon { display: block; }
+  .theme-toggle .icon-sun { display: none; }
+  html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+  html[data-theme="light"] .theme-toggle .icon-sun { display: block; }
   body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;min-height:100vh;position:relative;overflow-x:hidden;}
   body::before, body::after{content:'';position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);pointer-events:none;}
   body::before{top:-180px;left:50%;width:700px;height:500px;transform:translateX(-50%);background:radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);}
@@ -80,14 +110,15 @@
     font-size: 12px; font-weight: 700; padding: 9px 8px; border-radius: 8px;
   }
   .menu-dropdown.dropdown-left { right: auto; left: 0; }
-  .breadcrumb { max-width: 1000px; margin: 0 auto; padding: 1.25rem 2rem 0; font-size: 13px; color: var(--muted); }
+  .breadcrumb-row { max-width: 1000px; margin: 0 auto; padding: 1.25rem 2rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .breadcrumb { font-size: 13px; color: var(--muted); }
   .breadcrumb a { color: var(--muted); text-decoration: none; }
   .breadcrumb a:hover { color: var(--cyan); }
   .breadcrumb .current { color: var(--text); font-weight: 600; }
 
   .page-header{padding:4rem 2rem 2rem;max-width:900px;margin:0 auto;text-align:center;}
   .page-eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--cyan);text-transform:uppercase;border:1px solid var(--cyan-dim);padding:4px 14px;border-radius:2px;margin-bottom:1.5rem;text-shadow:0 0 14px var(--cyan-glow);}
-  .page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#fff;margin-bottom:1rem;background:linear-gradient(90deg,#fff,#fff 60%,var(--cyan));-webkit-background-clip:text;background-clip:text;}
+  .page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--heading);margin-bottom:1rem;background:linear-gradient(90deg,var(--heading),var(--heading) 60%,var(--cyan));-webkit-background-clip:text;background-clip:text;}
   .page-header p{color:var(--muted2);font-size:15px;max-width:540px;margin:0 auto;}
 
   .guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto;padding:2rem;}
@@ -101,7 +132,7 @@
   .guide-card-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--green);background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.25);padding:3px 10px;border-radius:20px;margin-bottom:1rem;width:fit-content;}
   .guide-card-top{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
   .site-badge{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;flex-shrink:0;}
-  .guide-card h2{font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:8px;}
+  .guide-card h2{font-size:1.15rem;font-weight:600;color:var(--heading);margin-bottom:8px;}
   .guide-card p{font-size:13px;color:var(--muted2);line-height:1.55;flex:1;}
   .guide-card-footer{margin-top:1.25rem;font-family:var(--mono);font-size:11px;color:var(--cyan);display:flex;align-items:center;gap:6px;}
 
@@ -149,13 +180,25 @@
   </div>
 </nav>
 
-<div class="breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; <span class="current">Guides</span></div>
+<div class="breadcrumb-row">
+  <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; <span class="current">Guides</span></div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 8.6A6 6 0 1 1 7.4 2 4.7 4.7 0 0 0 14 8.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/><path d="M8 1v1.6M8 13.4V15M15 8h-1.6M2.6 8H1M12.7 3.3l-1.1 1.1M4.4 11.6l-1.1 1.1M12.7 12.7l-1.1-1.1M4.4 4.4L3.3 3.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </button>
+</div>
 
 <script>
   document.addEventListener('click', function(e) {
     const wrap = document.getElementById('menuWrap');
     if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
   });
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isLight = html.getAttribute('data-theme') === 'light';
+    if (isLight) { html.removeAttribute('data-theme'); localStorage.setItem('sh-theme', 'dark'); }
+    else { html.setAttribute('data-theme', 'light'); localStorage.setItem('sh-theme', 'light'); }
+  }
 </script>
 
 <div class="page-header">
