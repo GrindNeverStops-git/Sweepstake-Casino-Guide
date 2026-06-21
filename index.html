@@ -167,6 +167,79 @@
   .intro-card-icon { font-size: 1.4rem; margin-bottom: 10px; }
   .intro-card-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
   .intro-card-text { font-size: 13px; color: var(--muted2); line-height: 1.55; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+  .faq-item {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden; transition: border-color 0.2s;
+  }
+  .faq-item.open { border-color: var(--gold-dim); }
+  .faq-question {
+    display: flex; align-items: center; gap: 14px;
+    padding: 1.1rem 1.4rem; cursor: pointer; user-select: none;
+  }
+  .faq-num {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    color: var(--gold); background: var(--gold-glow);
+    border: 1px solid var(--gold-dim); border-radius: 5px;
+    padding: 4px 8px; flex-shrink: 0;
+  }
+  .faq-title { font-size: 15px; font-weight: 600; color: #fff; flex: 1; }
+  .faq-arrow {
+    font-size: 14px; color: var(--muted); transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--gold); }
+  .faq-answer {
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.4rem;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding: 0 1.4rem 1.3rem; }
+  .faq-answer p { font-size: 14px; color: var(--muted2); line-height: 1.65; }
+  .faq-answer strong { color: var(--text); }
+
+  /* ── BIG FAQ SECTION ── */
+  .bigfaq { padding: 4rem 2rem; max-width: 860px; margin: 0 auto; }
+  .bigfaq-header { text-align: center; margin-bottom: 2rem; }
+  .bigfaq-title { font-family: var(--mono); font-size: 2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .bigfaq-sub { color: var(--muted2); font-size: 14px; max-width: 480px; margin: 0 auto; }
+  .bigfaq-divider { width: 60px; height: 2px; background: var(--green); margin: 1.25rem auto; }
+
+  .bigfaq-search-wrap { position: relative; max-width: 420px; margin: 0 auto 1.5rem; }
+  .bigfaq-search-wrap input {
+    width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px;
+    color: var(--text); font-family: var(--font); font-size: 14px;
+    padding: 11px 16px 11px 40px; outline: none; transition: border-color 0.2s;
+  }
+  .bigfaq-search-wrap input:focus { border-color: var(--gold); }
+  .bigfaq-search-wrap input::placeholder { color: var(--muted); }
+  .bigfaq-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; }
+
+  .bigfaq-tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 1rem; }
+  .bigfaq-tab {
+    font-family: var(--font); font-size: 12px; font-weight: 600;
+    padding: 7px 16px; border-radius: 20px; cursor: pointer;
+    border: 1px solid var(--border2); background: var(--bg2); color: var(--muted2);
+    transition: all 0.15s;
+  }
+  .bigfaq-tab:hover { color: var(--text); }
+  .bigfaq-tab.active { background: var(--gold-glow); border-color: var(--gold); color: var(--gold); }
+
+  .bigfaq-count { text-align: center; font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 2rem; }
+  .bigfaq-count strong { color: var(--gold); font-style: normal; }
+
+  .bigfaq-category-block { margin-bottom: 2.5rem; }
+  .bigfaq-category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+  .bigfaq-category-icon {
+    width: 38px; height: 38px; border-radius: 8px; background: var(--bg2);
+    border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .bigfaq-category-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+  .bigfaq-category-count { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .bigfaq-item { display: none; }
+  .bigfaq-item.visible { display: block; }
   .intro-flow {
     display: flex; align-items: center; gap: 0;
     background: var(--bg2); border: 1px solid var(--border);
@@ -298,6 +371,7 @@
     <a href="#intro">Start Here</a>
     <a href="#earnings">Earnings</a>
     <a href="guides.html">Game Guides</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <div class="nav-pills">
     <a class="pill-btn pill-discord" href="https://discord.gg/FV72HtRyD" target="_blank">Discord</a>
@@ -341,36 +415,66 @@
   <div class="section-title">What is this, exactly?</div>
   <p class="section-sub">New here? Read this first. It covers everything you need to know before diving in.</p>
 
-  <div class="intro-grid">
-    <div class="intro-card">
-      <div class="intro-card-icon">🎰</div>
-      <div class="intro-card-title">What are sweepstakes sites?</div>
-      <div class="intro-card-text">They're legal online platforms that let you play casino-style games using virtual coins. They're not real money casinos. they operate under sweepstakes law, which makes them legal in most US states.</div>
+  <div class="faq-list">
+    <div class="faq-item open" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span class="faq-num">01</span>
+        <span class="faq-title">What are sweepstakes sites?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-answer">
+        <p>They're legal online platforms that let you play casino-style games using virtual coins. They're not real money casinos — they operate under sweepstakes law, which makes them legal in most US states.</p>
+      </div>
     </div>
-    <div class="intro-card">
-      <div class="intro-card-icon">🎁</div>
-      <div class="intro-card-title">Why do they give out free coins?</div>
-      <div class="intro-card-text">These sites make money when people buy coin packages. To hook new users and keep existing ones logging in daily, they hand out free coins constantly. through daily bonuses, login streaks, promos, and more.</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span class="faq-num">02</span>
+        <span class="faq-title">Why do they give out free coins?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-answer">
+        <p>These sites make money when people buy coin packages. To hook new users and keep existing ones logging in daily, they hand out free coins constantly through daily bonuses, login streaks, promos, and more.</p>
+      </div>
     </div>
-    <div class="intro-card">
-      <div class="intro-card-icon">💸</div>
-      <div class="intro-card-title">How does it become real money?</div>
-      <div class="intro-card-text">Most sites have two coin types: one just for fun, and one (usually called "Sweeps Coins" or "SC") that can be redeemed for real cash or gift cards. The free daily bonuses include the redeemable kind.</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span class="faq-num">03</span>
+        <span class="faq-title">How does it become real money?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-answer">
+        <p>Most sites have two coin types: one just for fun, and one (usually called <strong>"Sweeps Coins"</strong> or <strong>SC</strong>) that can be redeemed for real cash or gift cards. The free daily bonuses include the redeemable kind.</p>
+      </div>
     </div>
-    <div class="intro-card">
-      <div class="intro-card-icon">📋</div>
-      <div class="intro-card-title">What's the actual strategy?</div>
-      <div class="intro-card-text">Sign up for as many quality sites as possible, claim the free daily bonus on each one, play through the required amount on low-risk games, then cash out. Repeat every day across 50+ sites.</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span class="faq-num">04</span>
+        <span class="faq-title">What's the actual strategy?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sign up for as many quality sites as possible, claim the free daily bonus on each one, play through the required amount on low-risk games, then cash out. Repeat every day across 50+ sites.</p>
+      </div>
     </div>
-    <div class="intro-card">
-      <div class="intro-card-icon">💰</div>
-      <div class="intro-card-title">Do I have to spend money?</div>
-      <div class="intro-card-text">The base strategy is completely free and still pulls consistent money. That said, promo purchases will SIGNIFICANTLY boost your earnings since you're buying discounted coin packages at a guaranteed edge. Totally optional but highly recommended once you're comfortable with the strategy.</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span class="faq-num">05</span>
+        <span class="faq-title">Do I have to spend money?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-answer">
+        <p>The base strategy is completely free and still pulls consistent money. That said, promo purchases will <strong>significantly</strong> boost your earnings since you're buying discounted coin packages at a guaranteed edge. Totally optional but highly recommended once you're comfortable with the strategy.</p>
+      </div>
     </div>
-    <div class="intro-card">
-      <div class="intro-card-icon">⚠️</div>
-      <div class="intro-card-title">Is there any risk?</div>
-      <div class="intro-card-text">Virtually no risk following this guide. The daily farming strategy costs nothing and pays out consistently. Promo purchases are extremely safe when used with the strategies here since you're buying discounted value, not gambling blind. Just confirm your state is eligible before signing up.</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span class="faq-num">06</span>
+        <span class="faq-title">Is there any risk?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-answer">
+        <p>Virtually no risk following this guide. The daily farming strategy costs nothing and pays out consistently. Promo purchases are extremely safe when used with the strategies here since you're buying discounted value, not gambling blind. Just confirm your state is eligible before signing up.</p>
+      </div>
     </div>
   </div>
 
@@ -546,5 +650,44 @@
   SWEEPSTAKES HUSTLE &nbsp;·&nbsp; UPDATED REGULARLY &nbsp;·&nbsp; USA ONLY
 </footer>
 
+<script>
+function toggleFaq(item) {
+  item.classList.toggle('open');
+}
+
+let activeFaqCategory = 'all';
+
+function setFaqCategory(cat, el) {
+  activeFaqCategory = cat;
+  document.querySelectorAll('.bigfaq-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  filterFaq();
+}
+
+function filterFaq() {
+  const q = document.getElementById('faqSearch').value.toLowerCase();
+  const items = document.querySelectorAll('.bigfaq-item');
+  const blocks = document.querySelectorAll('.bigfaq-category-block');
+  let visibleCount = 0;
+  let totalCount = items.length;
+
+  items.forEach(item => {
+    const cat = item.getAttribute('data-category');
+    const text = item.textContent.toLowerCase();
+    const catMatch = activeFaqCategory === 'all' || cat === activeFaqCategory;
+    const textMatch = !q || text.includes(q);
+    const show = catMatch && textMatch;
+    item.classList.toggle('visible', show);
+    if (show) visibleCount++;
+  });
+
+  blocks.forEach(block => {
+    const visibleInBlock = block.querySelectorAll('.bigfaq-item.visible').length;
+    block.style.display = visibleInBlock > 0 ? '' : 'none';
+  });
+
+  document.getElementById('faqCount').innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalCount}</strong> questions`;
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Sweepstakes Side Hustle Guide</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCJCDQRZZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JCJCDQRZZJ');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0c0f; --bg2: #111418; --bg3: #181d24;
+    --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.13);
+    --gold: #c9a84c; --gold-dim: #7a5e24; --gold-glow: rgba(201,168,76,0.12);
+    --green: #2ecc71; --text: #e8eaed; --muted: #6b7280; --muted2: #9ca3af;
+    --font: 'Space Grotesk', sans-serif; --mono: 'Space Mono', monospace;
+  }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.7; min-height: 100vh; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,12,15,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px;
+  }
+  .nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--muted2); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active { color: var(--gold); }
+  .nav-pills { display: flex; align-items: center; gap: 10px; }
+  .pill-btn { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.03em; padding: 7px 14px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s; }
+  .pill-btn:hover { opacity: 0.85; }
+  .pill-discord { background: #5865F2; color: #fff; }
+  .nav-cta { background: var(--gold); color: #0a0c0f; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; padding: 7px 16px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+  .faq-item {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden; transition: border-color 0.2s;
+  }
+  .faq-item.open { border-color: var(--gold-dim); }
+  .faq-question {
+    display: flex; align-items: center; gap: 14px;
+    padding: 1.1rem 1.4rem; cursor: pointer; user-select: none;
+  }
+  .faq-num {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    color: var(--gold); background: var(--gold-glow);
+    border: 1px solid var(--gold-dim); border-radius: 5px;
+    padding: 4px 8px; flex-shrink: 0;
+  }
+  .faq-title { font-size: 15px; font-weight: 600; color: #fff; flex: 1; }
+  .faq-arrow { font-size: 14px; color: var(--muted); transition: transform 0.25s; flex-shrink: 0; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--gold); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 1.4rem; }
+  .faq-item.open .faq-answer { max-height: 300px; padding: 0 1.4rem 1.3rem; }
+  .faq-answer p { font-size: 14px; color: var(--muted2); line-height: 1.65; }
+  .faq-answer strong { color: var(--text); }
+
+  .bigfaq { padding: 3rem 2rem 4rem; max-width: 860px; margin: 0 auto; }
+  .bigfaq-header { text-align: center; margin-bottom: 2rem; }
+  .bigfaq-title { font-family: var(--mono); font-size: 2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .bigfaq-sub { color: var(--muted2); font-size: 14px; max-width: 480px; margin: 0 auto; }
+  .bigfaq-divider { width: 60px; height: 2px; background: var(--green); margin: 1.25rem auto; }
+
+  .bigfaq-search-wrap { position: relative; max-width: 420px; margin: 0 auto 1.5rem; }
+  .bigfaq-search-wrap input {
+    width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px;
+    color: var(--text); font-family: var(--font); font-size: 14px;
+    padding: 11px 16px 11px 40px; outline: none; transition: border-color 0.2s;
+  }
+  .bigfaq-search-wrap input:focus { border-color: var(--gold); }
+  .bigfaq-search-wrap input::placeholder { color: var(--muted); }
+  .bigfaq-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; }
+
+  .bigfaq-tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 1rem; }
+  .bigfaq-tab {
+    font-family: var(--font); font-size: 12px; font-weight: 600;
+    padding: 7px 16px; border-radius: 20px; cursor: pointer;
+    border: 1px solid var(--border2); background: var(--bg2); color: var(--muted2);
+    transition: all 0.15s;
+  }
+  .bigfaq-tab:hover { color: var(--text); }
+  .bigfaq-tab.active { background: var(--gold-glow); border-color: var(--gold); color: var(--gold); }
+
+  .bigfaq-count { text-align: center; font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 2rem; }
+  .bigfaq-count strong { color: var(--gold); font-style: normal; }
+
+  .bigfaq-category-block { margin-bottom: 2.5rem; }
+  .bigfaq-category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+  .bigfaq-category-icon {
+    width: 38px; height: 38px; border-radius: 8px; background: var(--bg2);
+    border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .bigfaq-category-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+  .bigfaq-category-count { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .bigfaq-item { display: none; }
+  .bigfaq-item.visible { display: block; }
+
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .bigfaq { padding: 2rem 1.25rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">SWEEPSTAKES HUSTLE</a>
+  <div class="nav-links">
+    <a href="index.html">Overview</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="guides.html">Game Guides</a>
+    <a href="faq.html" class="active">FAQ</a>
+  </div>
+  <div class="nav-pills">
+    <a class="pill-btn pill-discord" href="https://discord.gg/FV72HtRyD" target="_blank">Discord</a>
+    <a class="nav-cta" href="tracker.html">View Sites</a>
+  </div>
+</nav>
+
+<!-- BIG FAQ -->
+<section class="bigfaq">
+  <div class="bigfaq-header">
+    <div class="bigfaq-title">FAQ</div>
+    <div class="bigfaq-divider"></div>
+    <p class="bigfaq-sub">Everything you need to know about sweepstakes casinos and how to get the most out of this guide.</p>
+  </div>
+
+  <div class="bigfaq-search-wrap">
+    <span class="bigfaq-search-icon">⌕</span>
+    <input type="text" id="faqSearch" placeholder="Search questions..." oninput="filterFaq()">
+  </div>
+
+  <div class="bigfaq-tabs" id="faqTabs">
+    <span class="bigfaq-tab active" onclick="setFaqCategory('all', this)">All</span>
+    <span class="bigfaq-tab" onclick="setFaqCategory('getting-started', this)">Getting Started</span>
+    <span class="bigfaq-tab" onclick="setFaqCategory('eligibility', this)">Eligibility</span>
+    <span class="bigfaq-tab" onclick="setFaqCategory('earnings', this)">Earnings</span>
+    <span class="bigfaq-tab" onclick="setFaqCategory('payments', this)">Payments</span>
+    <span class="bigfaq-tab" onclick="setFaqCategory('risks', this)">Risks</span>
+  </div>
+
+  <div class="bigfaq-count" id="faqCount">Showing <strong>18</strong> of <strong>18</strong> questions</div>
+
+  <!-- GETTING STARTED -->
+  <div class="bigfaq-category-block" data-category="getting-started">
+    <div class="bigfaq-category-header">
+      <div class="bigfaq-category-icon">🚀</div>
+      <div>
+        <div class="bigfaq-category-name">Getting Started</div>
+        <div class="bigfaq-category-count">4 questions</div>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="bigfaq-item visible" data-category="getting-started">
+        <div class="faq-item open" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">01</span><span class="faq-title">What are sweepstakes casinos?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Sweepstakes casinos work like online casinos, but they operate under sweepstakes law instead of gambling law. That's what makes them legal in most US states. Every site uses two currencies: <strong>Gold Coins (GC)</strong> for fun play with no cash value, and <strong>Sweeps Coins (SC)</strong> which can be redeemed for real money. SC is what you're farming.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="getting-started">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">02</span><span class="faq-title">What is SC (Sweeps Coins)?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>SC is the currency that actually matters. It's redeemable for real cash, typically at a <strong>1:1 ratio</strong> — 100 SC becomes $100. It's given out for free through daily bonuses, login streaks, and promos, never sold directly (that's the legal loophole that makes the whole model work). A few sites use a different ratio or name it something else, but the function is the same everywhere.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="getting-started">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">03</span><span class="faq-title">How do I actually get started?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Head to the <a href="tracker.html" style="color:var(--gold);">Site Tracker</a> — sites are sorted by tier, SS being highest value. Start from the top of the list and work down. Register with your real info, claim your welcome bonus, and bookmark your daily claim links so you can fly through them every day. Then read the <a href="guides.html" style="color:var(--gold);">Game Guides</a> for site-specific strategy once you're comfortable with the basics.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="getting-started">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">04</span><span class="faq-title">What is "farming"?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Farming means logging into your sites daily and collecting every free reward available — daily bonuses, claim links, free spins, anything no-cost. It's the lowest-risk way to earn since you never spend your own money. Most people who do this consistently farm across 20-30+ sites and build a steady balance from it every month.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ELIGIBILITY -->
+  <div class="bigfaq-category-block" data-category="eligibility">
+    <div class="bigfaq-category-header">
+      <div class="bigfaq-category-icon">✅</div>
+      <div>
+        <div class="bigfaq-category-name">Eligibility</div>
+        <div class="bigfaq-category-count">3 questions</div>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="bigfaq-item visible" data-category="eligibility">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">05</span><span class="faq-title">Is this legal?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Yes. These platforms operate under US sweepstakes law, which is a completely separate legal framework from gambling regulation. The dual-currency setup (GC for fun, SC for prizes) combined with mandatory free entry methods is what keeps the model legal. It's legal in most states, though a handful (like WA, ID, and MI) restrict or block sweepstakes casinos entirely — always check your state before signing up.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="eligibility">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">06</span><span class="faq-title">How are sweepstakes casinos different from real money online casinos?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>The biggest difference is the legal structure. Real money casinos require you to deposit actual cash and are heavily regulated by state gaming commissions, available only in a handful of states. Sweepstakes casinos don't involve depositing real money at all — they use the GC/SC system and run under sweepstakes law, which means they're available in far more states. The games themselves can look identical (same providers, same slots), but the way money flows in and out is fundamentally different.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="eligibility">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">07</span><span class="faq-title">Do I need to verify my identity?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Yes, every legitimate site requires identity verification before you can redeem. Register with your exact legal name from the start (it has to match your ID later) and get verified as early as possible rather than waiting until you're ready to cash out. This avoids delays right when you actually want your money.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EARNINGS -->
+  <div class="bigfaq-category-block" data-category="earnings">
+    <div class="bigfaq-category-header">
+      <div class="bigfaq-category-icon">💰</div>
+      <div>
+        <div class="bigfaq-category-name">Earnings</div>
+        <div class="bigfaq-category-count">4 questions</div>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="bigfaq-item visible" data-category="earnings">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">08</span><span class="faq-title">How much can I realistically earn?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>That's directly tied to how many sites you work and how aggressive you want to be. Sticking to pure daily farming across the sites in the tracker, most people land in the <strong>$750-$1,500/month</strong> range with essentially zero risk. Members who take advantage of promo purchases and washing strategies on top of farming routinely clear more, and top performers using the full strategy (including the Weekly Subscription guide) report <strong>$5,000+ per month</strong>. More sites worked = more bonuses = more money.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="earnings">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">09</span><span class="faq-title">How much time does this take?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>After the initial setup, the daily routine is roughly <strong>5-10 minutes</strong> on PC, slightly longer on mobile. That covers logging into your sites, grabbing daily bonuses, and checking for new promos. The first week or two takes more time while you register accounts and learn each platform, but it becomes very fast once you have a system and your claim links bookmarked.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="earnings">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">10</span><span class="faq-title">What is "washing"?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Washing means buying a coin package or promo, then clearing the playthrough requirement strategically so the math works in your favor. It requires putting up some money, but if you stick to the methods in the <a href="guides.html" style="color:var(--gold);">Game Guides</a> (roulette red/black, blackjack basic strategy), this is where the bigger earnings come from. A lot of people are hesitant to take that first purchase leap, but once you see how the math works out, it usually becomes the most profitable part of the strategy.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="earnings">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">11</span><span class="faq-title">I played 100 SC on a 97% RTP game and ended up with less than 97 SC. Why?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>RTP is a statistical average calculated over millions of spins, not a guarantee for any single session. It doesn't mean you'll get exactly 97 SC back for every 100 SC wagered each time you play. There's always variance — some sessions land above the RTP, some below. Over a long period across many sessions, your results trend toward the advertised RTP. Short-term swings up or down are completely normal.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENTS -->
+  <div class="bigfaq-category-block" data-category="payments">
+    <div class="bigfaq-category-header">
+      <div class="bigfaq-category-icon">💳</div>
+      <div>
+        <div class="bigfaq-category-name">Payments</div>
+        <div class="bigfaq-category-count">4 questions</div>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="bigfaq-item visible" data-category="payments">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">12</span><span class="faq-title">What is a playthrough (wagering) requirement?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Before you can cash out SC, you typically need to wager it a set number of times. At most sweepstakes casinos this is just <strong>1x playthrough</strong> — meaning 10 SC received requires 10 SC in total bets before it's redeemable. Compare that to traditional online casinos where 20x-40x wagering requirements are standard, and you can see why the sweepstakes model is so much more player-friendly.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="payments">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">13</span><span class="faq-title">How do I redeem my winnings?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Once your SC is past playthrough, you submit a redemption request through the site, usually requiring your verified identity to already be on file. Common payout methods include direct bank transfer, PayPal, and gift cards. Processing time varies by site — some pay out within a day, others take a week or more, so factor that into which sites you prioritize.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="payments">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">14</span><span class="faq-title">Do I have to pay taxes on this?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Yes — redeemed winnings are taxable income in the US, same as any gambling-style winnings. Sites that pay out above certain thresholds may issue a W-2G. Keep your own records of what you've redeemed throughout the year since not every site reports automatically. This isn't tax advice — talk to an accountant about your specific situation, especially once you're earning consistently.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="payments">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">15</span><span class="faq-title">Do I have to spend money to make money?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>No. The base farming strategy is completely free and still pulls consistent money every month. That said, promo purchases will significantly boost your earnings since you're buying discounted coin packages at a guaranteed edge. Totally optional, but it's where the jump from a few hundred dollars a month to $5,000+ tends to come from.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RISKS -->
+  <div class="bigfaq-category-block" data-category="risks">
+    <div class="bigfaq-category-header">
+      <div class="bigfaq-category-icon">⚠️</div>
+      <div>
+        <div class="bigfaq-category-name">Risks</div>
+        <div class="bigfaq-category-count">3 questions</div>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="bigfaq-item visible" data-category="risks">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">16</span><span class="faq-title">Is there any real risk to this?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Virtually none if you stick to farming. The daily routine costs nothing and pays out consistently. Promo purchases carry slightly more risk since you're spending real money, but using the strategies in the guides (roulette red/black, low-bet blackjack) keeps that risk extremely low and predictable. Just confirm your state allows sweepstakes casinos before signing up anywhere.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="risks">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">17</span><span class="faq-title">Can sites just refuse to pay me out?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>It's rare among reputable sites, but it can happen if account info doesn't match your ID, if there's a terms violation, or if a smaller/newer site has cash flow issues. Sticking to the established, higher-tier sites in the tracker significantly reduces this risk. Always read a site's terms before doing anything that could be flagged, like covering both colors on roulette.</p></div>
+        </div>
+      </div>
+
+      <div class="bigfaq-item visible" data-category="risks">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><span class="faq-num">18</span><span class="faq-title">What's the catch?</span><span class="faq-arrow">▾</span></div>
+          <div class="faq-answer"><p>Honestly, none. This guide doesn't sell courses, memberships, or premium tiers — it's free and stays free. The Discord community shares results daily, and everything in the guides and tracker is published openly. The goal has always been to build something genuinely useful and share what works.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>SWEEPSTAKES HUSTLE &nbsp;·&nbsp; UPDATED REGULARLY &nbsp;·&nbsp; USA ONLY</footer>
+
+<script>
+function toggleFaq(item) {
+  item.classList.toggle('open');
+}
+
+let activeFaqCategory = 'all';
+
+function setFaqCategory(cat, el) {
+  activeFaqCategory = cat;
+  document.querySelectorAll('.bigfaq-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  filterFaq();
+}
+
+function filterFaq() {
+  const q = document.getElementById('faqSearch').value.toLowerCase();
+  const items = document.querySelectorAll('.bigfaq-item');
+  const blocks = document.querySelectorAll('.bigfaq-category-block');
+  let visibleCount = 0;
+  let totalCount = items.length;
+
+  items.forEach(item => {
+    const cat = item.getAttribute('data-category');
+    const text = item.textContent.toLowerCase();
+    const catMatch = activeFaqCategory === 'all' || cat === activeFaqCategory;
+    const textMatch = !q || text.includes(q);
+    const show = catMatch && textMatch;
+    item.classList.toggle('visible', show);
+    if (show) visibleCount++;
+  });
+
+  blocks.forEach(block => {
+    const visibleInBlock = block.querySelectorAll('.bigfaq-item.visible').length;
+    block.style.display = visibleInBlock > 0 ? '' : 'none';
+  });
+
+  document.getElementById('faqCount').innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalCount}</strong> questions`;
+}
+</script>
+
+</body>
+</html>
