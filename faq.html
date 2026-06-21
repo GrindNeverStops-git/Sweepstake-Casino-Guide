@@ -18,10 +18,18 @@
     --bg: #0a0c0f; --bg2: #111418; --bg3: #181d24;
     --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.13);
     --gold: #c9a84c; --gold-dim: #7a5e24; --gold-glow: rgba(201,168,76,0.12);
-    --green: #2ecc71; --text: #e8eaed; --muted: #6b7280; --muted2: #9ca3af;
+    --green: #2ecc71; --green-dim: rgba(46,204,113,0.12);
+    --cyan: #3fd0ff; --cyan-dim: rgba(63,208,255,0.18); --cyan-glow: rgba(63,208,255,0.14);
+    --warm: #ff9d5c; --warm-dim: rgba(255,157,92,0.22); --warm-glow: rgba(255,157,92,0.15);
+    --text: #e8eaed; --muted: #6b7280; --muted2: #9ca3af;
     --font: 'Space Grotesk', sans-serif; --mono: 'Space Mono', monospace;
   }
-  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.7; min-height: 100vh; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.7; min-height: 100vh; position: relative; overflow-x: hidden; }
+  body::before, body::after { content:''; position: fixed; z-index: -1; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  body::before { top: -180px; left: 50%; width: 700px; height: 500px; transform: translateX(-50%); background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%); }
+  body::after { top: 480px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, var(--green-dim) 0%, transparent 70%); }
+  .glow-spot { position: fixed; z-index: -1; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+  .glow-spot-1 { bottom: -120px; left: -150px; width: 550px; height: 450px; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%); }
 
   nav {
     position: sticky; top: 0; z-index: 100;
@@ -29,37 +37,39 @@
     border-bottom: 1px solid var(--border);
     padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px;
   }
-  .nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+  .nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--cyan); letter-spacing: 0.08em; text-decoration: none; text-shadow: 0 0 14px var(--cyan-glow); }
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { color: var(--muted2); font-size: 13px; text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
-  .nav-links a.active { color: var(--gold); }
+  .nav-links a.active { color: var(--cyan); }
   .nav-pills { display: flex; align-items: center; gap: 10px; }
-  .pill-btn { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.03em; padding: 7px 14px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s; }
-  .pill-btn:hover { opacity: 0.85; }
+  .pill-btn { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.03em; padding: 7px 14px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .pill-btn:hover { opacity: 0.85; transform: translateY(-1px); }
   .pill-discord { background: #5865F2; color: #fff; }
-  .nav-cta { background: var(--gold); color: #0a0c0f; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; padding: 7px 16px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
-  .nav-cta:hover { opacity: 0.85; }
+  .pill-discord:hover { box-shadow: 0 4px 16px rgba(88,101,242,0.4); }
+  .nav-cta { background: var(--cyan); color: #0a0c0f; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; padding: 7px 16px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,168,76,0.3); }
 
   .faq-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
   .faq-item {
     background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 8px; overflow: hidden; transition: border-color 0.2s;
+    border-radius: 8px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .faq-item.open { border-color: var(--gold-dim); }
+  .faq-item:hover { border-color: var(--border2); }
+  .faq-item.open { border-color: var(--warm-dim); box-shadow: 0 0 24px -8px var(--warm-glow); }
   .faq-question {
     display: flex; align-items: center; gap: 14px;
     padding: 1.1rem 1.4rem; cursor: pointer; user-select: none;
   }
   .faq-num {
     font-family: var(--mono); font-size: 11px; font-weight: 700;
-    color: var(--gold); background: var(--gold-glow);
-    border: 1px solid var(--gold-dim); border-radius: 5px;
+    color: var(--warm); background: var(--warm-glow);
+    border: 1px solid var(--warm-dim); border-radius: 5px;
     padding: 4px 8px; flex-shrink: 0;
   }
   .faq-title { font-size: 15px; font-weight: 600; color: #fff; flex: 1; }
   .faq-arrow { font-size: 14px; color: var(--muted); transition: transform 0.25s; flex-shrink: 0; }
-  .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--gold); }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--warm); }
   .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 1.4rem; }
   .faq-item.open .faq-answer { max-height: 300px; padding: 0 1.4rem 1.3rem; }
   .faq-answer p { font-size: 14px; color: var(--muted2); line-height: 1.65; }
@@ -67,7 +77,7 @@
 
   .bigfaq { padding: 3rem 2rem 4rem; max-width: 860px; margin: 0 auto; }
   .bigfaq-header { text-align: center; margin-bottom: 2rem; }
-  .bigfaq-title { font-family: var(--mono); font-size: 2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .bigfaq-title { font-family: var(--mono); font-size: 2rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 0.75rem; background: linear-gradient(90deg, var(--cyan), var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .bigfaq-sub { color: var(--muted2); font-size: 14px; max-width: 480px; margin: 0 auto; }
   .bigfaq-divider { width: 60px; height: 2px; background: var(--green); margin: 1.25rem auto; }
 
@@ -77,7 +87,7 @@
     color: var(--text); font-family: var(--font); font-size: 14px;
     padding: 11px 16px 11px 40px; outline: none; transition: border-color 0.2s;
   }
-  .bigfaq-search-wrap input:focus { border-color: var(--gold); }
+  .bigfaq-search-wrap input:focus { border-color: var(--cyan); }
   .bigfaq-search-wrap input::placeholder { color: var(--muted); }
   .bigfaq-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; }
 
@@ -89,10 +99,10 @@
     transition: all 0.15s;
   }
   .bigfaq-tab:hover { color: var(--text); }
-  .bigfaq-tab.active { background: var(--gold-glow); border-color: var(--gold); color: var(--gold); }
+  .bigfaq-tab.active { background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan); }
 
   .bigfaq-count { text-align: center; font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 2rem; }
-  .bigfaq-count strong { color: var(--gold); font-style: normal; }
+  .bigfaq-count strong { color: var(--cyan); font-style: normal; }
 
   .bigfaq-category-block { margin-bottom: 2.5rem; }
   .bigfaq-category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
@@ -100,8 +110,9 @@
     width: 38px; height: 38px; border-radius: 8px; background: var(--bg2);
     border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center;
     font-size: 18px; flex-shrink: 0;
+    box-shadow: 0 0 16px -6px var(--cyan-glow);
   }
-  .bigfaq-category-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+  .bigfaq-category-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--cyan); letter-spacing: 0.08em; text-transform: uppercase; }
   .bigfaq-category-count { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
   .bigfaq-item { display: none; }
@@ -117,6 +128,7 @@
 </style>
 </head>
 <body>
+<div class="glow-spot glow-spot-1"></div>
 
 <nav>
   <a class="nav-logo" href="index.html">SWEEPSTAKES HUSTLE</a>
@@ -184,7 +196,7 @@
       <div class="bigfaq-item visible" data-category="getting-started">
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question"><span class="faq-num">03</span><span class="faq-title">How do I actually get started?</span><span class="faq-arrow">▾</span></div>
-          <div class="faq-answer"><p>Head to the <a href="tracker.html" style="color:var(--gold);">Site Tracker</a> — sites are sorted by tier, SS being highest value. Start from the top of the list and work down. Register with your real info, claim your welcome bonus, and bookmark your daily claim links so you can fly through them every day. Then read the <a href="guides.html" style="color:var(--gold);">Game Guides</a> for site-specific strategy once you're comfortable with the basics.</p></div>
+          <div class="faq-answer"><p>Head to the <a href="tracker.html" style="color:var(--cyan);">Site Tracker</a> — sites are sorted by tier, SS being highest value. Start from the top of the list and work down. Register with your real info, claim your welcome bonus, and bookmark your daily claim links so you can fly through them every day. Then read the <a href="guides.html" style="color:var(--cyan);">Game Guides</a> for site-specific strategy once you're comfortable with the basics.</p></div>
         </div>
       </div>
 
@@ -259,7 +271,7 @@
       <div class="bigfaq-item visible" data-category="earnings">
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question"><span class="faq-num">10</span><span class="faq-title">What is "washing"?</span><span class="faq-arrow">▾</span></div>
-          <div class="faq-answer"><p>Washing means buying a coin package or promo, then clearing the playthrough requirement strategically so the math works in your favor. It requires putting up some money, but if you stick to the methods in the <a href="guides.html" style="color:var(--gold);">Game Guides</a> (roulette red/black, blackjack basic strategy), this is where the bigger earnings come from. A lot of people are hesitant to take that first purchase leap, but once you see how the math works out, it usually becomes the most profitable part of the strategy.</p></div>
+          <div class="faq-answer"><p>Washing means buying a coin package or promo, then clearing the playthrough requirement strategically so the math works in your favor. It requires putting up some money, but if you stick to the methods in the <a href="guides.html" style="color:var(--cyan);">Game Guides</a> (roulette red/black, blackjack basic strategy), this is where the bigger earnings come from. A lot of people are hesitant to take that first purchase leap, but once you see how the math works out, it usually becomes the most profitable part of the strategy.</p></div>
         </div>
       </div>
 

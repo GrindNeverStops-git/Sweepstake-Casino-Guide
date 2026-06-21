@@ -19,43 +19,53 @@
     --bg:#0a0c0f;--bg2:#111418;--bg3:#181d24;
     --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
     --gold:#c9a84c;--gold-dim:#7a5e24;--gold-glow:rgba(201,168,76,0.12);
-    --green:#2ecc71;--text:#e8eaed;--muted:#6b7280;--muted2:#9ca3af;
+    --green:#2ecc71;--green-dim:rgba(46,204,113,0.12);
+    --cyan:#3fd0ff;--cyan-dim:rgba(63,208,255,0.18);--cyan-glow:rgba(63,208,255,0.14);
+    --warm:#ff9d5c;--warm-dim:rgba(255,157,92,0.22);--warm-glow:rgba(255,157,92,0.15);
+    --text:#e8eaed;--muted:#6b7280;--muted2:#9ca3af;
     --font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
   }
-  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;min-height:100vh;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;min-height:100vh;position:relative;overflow-x:hidden;}
+  body::before, body::after{content:'';position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);pointer-events:none;}
+  body::before{top:-180px;left:50%;width:700px;height:500px;transform:translateX(-50%);background:radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);}
+  body::after{top:500px;right:-200px;width:600px;height:600px;background:radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);}
+  .glow-spot{position:fixed;z-index:-1;border-radius:50%;filter:blur(100px);pointer-events:none;}
+  .glow-spot-1{bottom:-120px;left:-150px;width:550px;height:450px;background:radial-gradient(circle, var(--green-dim) 0%, transparent 70%);}
   nav{position:sticky;top:0;z-index:100;background:rgba(10,12,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
-  .nav-logo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-decoration:none;}
+  .nav-logo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0.08em;text-decoration:none;text-shadow:0 0 14px var(--cyan-glow);}
   nav{position:sticky !important;}
   .nav-links{display:flex;gap:2rem;}
   .nav-links a{color:var(--muted2);font-size:13px;text-decoration:none;transition:color .2s;}
   .nav-links a:hover,.nav-links a.active{color:var(--text);}
-  .nav-links a.active{color:var(--gold);}
-  .nav-cta{background:var(--gold);color:#0a0c0f;font-size:12px;font-weight:700;letter-spacing:.05em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  .nav-links a.active{color:var(--cyan);}
+  .nav-cta{background:var(--cyan);color:#0a0c0f;font-size:12px;font-weight:700;letter-spacing:.05em;padding:7px 16px;border-radius:4px;text-decoration:none;}
   .nav-pills{display:flex;align-items:center;gap:8px;}
-  .pill-btn{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 14px;border-radius:20px;text-decoration:none;transition:opacity .15s;}
-  .pill-btn:hover{opacity:.85;}
+  .pill-btn{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 14px;border-radius:20px;text-decoration:none;transition:opacity .15s, transform .15s, box-shadow .15s;}
+  .pill-btn:hover{opacity:.85;transform:translateY(-1px);}
   .pill-discord{background:#5865F2;color:#fff;}
-  .pill-tracker{background:var(--gold);color:#0a0c0f;}
+  .pill-discord:hover{box-shadow:0 4px 16px rgba(88,101,242,0.4);}
+  .pill-tracker{background:var(--cyan);color:#0a0c0f;}
+  .pill-tracker:hover{box-shadow:0 4px 16px rgba(63,208,255,0.4);}
 
   .page-header{padding:4rem 2rem 2rem;max-width:900px;margin:0 auto;text-align:center;}
-  .page-eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:4px 14px;border-radius:2px;margin-bottom:1.5rem;}
-  .page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#fff;margin-bottom:1rem;}
+  .page-eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--cyan);text-transform:uppercase;border:1px solid var(--cyan-dim);padding:4px 14px;border-radius:2px;margin-bottom:1.5rem;text-shadow:0 0 14px var(--cyan-glow);}
+  .page-header h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#fff;margin-bottom:1rem;background:linear-gradient(90deg,#fff,#fff 60%,var(--cyan));-webkit-background-clip:text;background-clip:text;}
   .page-header p{color:var(--muted2);font-size:15px;max-width:540px;margin:0 auto;}
 
   .guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto;padding:2rem;}
-  .guide-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.75rem;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;}
-  .guide-card.featured{border:2px solid var(--gold);background:linear-gradient(180deg, rgba(201,168,76,0.08) 0%, var(--bg2) 100%);position:relative;grid-column:1 / -1;}
-  .guide-card.featured:hover{border-color:var(--gold);transform:translateY(-2px);}
-  .featured-badge{position:absolute;top:-12px;left:1.75rem;background:var(--gold);color:#0a0c0f;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;padding:4px 12px;border-radius:20px;}
+  .guide-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.75rem;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+  .guide-card.featured{border:2px solid var(--warm);background:linear-gradient(180deg, rgba(255,157,92,0.08) 0%, var(--bg2) 100%);position:relative;grid-column:1 / -1;box-shadow:0 0 50px -16px var(--warm-glow);}
+  .guide-card.featured:hover{border-color:var(--warm);transform:translateY(-3px);box-shadow:0 16px 40px -14px var(--warm-glow);}
+  .featured-badge{position:absolute;top:-12px;left:1.75rem;background:var(--warm);color:#0a0c0f;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;padding:4px 12px;border-radius:20px;}
   .guide-card.featured h2{font-size:1.5rem;}
   .guide-card.featured p{font-size:14px;max-width:560px;}
-  .guide-card:hover{border-color:var(--gold-dim);transform:translateY(-2px);}
+  .guide-card:hover{border-color:var(--cyan-dim);transform:translateY(-3px);box-shadow:0 14px 32px -16px var(--cyan-glow);}
   .guide-card-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--green);background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.25);padding:3px 10px;border-radius:20px;margin-bottom:1rem;width:fit-content;}
   .guide-card-top{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
   .site-badge{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;flex-shrink:0;}
   .guide-card h2{font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:8px;}
   .guide-card p{font-size:13px;color:var(--muted2);line-height:1.55;flex:1;}
-  .guide-card-footer{margin-top:1.25rem;font-family:var(--mono);font-size:11px;color:var(--gold);display:flex;align-items:center;gap:6px;}
+  .guide-card-footer{margin-top:1.25rem;font-family:var(--mono);font-size:11px;color:var(--cyan);display:flex;align-items:center;gap:6px;}
 
   footer{border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;}
 
@@ -68,6 +78,7 @@
 </style>
 </head>
 <body>
+<div class="glow-spot glow-spot-1"></div>
 
 <nav>
   <a class="nav-logo" href="index.html">SWEEPSTAKES HUSTLE</a>
@@ -93,7 +104,7 @@
 
   <a class="guide-card featured" href="guides/lavish-luck-guide.html">
     <span class="featured-badge">💰 BIGGEST EARNER</span>
-    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE STRATEGY</span>
+    <span class="guide-card-tag" style="color:var(--cyan);background:var(--cyan-glow);border-color:var(--cyan-dim);">SITE STRATEGY</span>
     <h2>Lavish Luck Guide</h2>
     <p>Turn Lavish Luck, Jackpot Go, Cider Casino, and Gleaming Slots' Weekly Subscriptions into a repeatable $800+/month combined return. Start here.</p>
     <div class="guide-card-footer">Read guide →</div>
@@ -114,21 +125,21 @@
   </a>
 
   <a class="guide-card" href="guides/shuffle-vip-guide.html">
-    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <span class="guide-card-tag" style="color:var(--cyan);background:var(--cyan-glow);border-color:var(--cyan-dim);">SITE VIP GUIDE</span>
     <h2>Shuffle.us VIP Guide</h2>
     <p>Climb Shuffle's VIP ranks, grind XP efficiently with a Dice strategy, and stack rakeback, bonuses, and Telegram codes.</p>
     <div class="guide-card-footer">Read guide →</div>
   </a>
 
   <a class="guide-card" href="guides/crowncoins-vip-guide.html">
-    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <span class="guide-card-tag" style="color:var(--cyan);background:var(--cyan-glow);border-color:var(--cyan-dim);">SITE VIP GUIDE</span>
     <h2>Crown Coins VIP Guide</h2>
     <p>Stockpile Gold Coins with the Vault Strategy, grind Epic Joker, and stack daily, monthly, and Royal Club rewards.</p>
     <div class="guide-card-footer">Read guide →</div>
   </a>
 
   <a class="guide-card" href="guides/modo-vip-guide.html">
-    <span class="guide-card-tag" style="color:var(--gold);background:var(--gold-glow);border-color:var(--gold-dim);">SITE VIP GUIDE</span>
+    <span class="guide-card-tag" style="color:var(--cyan);background:var(--cyan-glow);border-color:var(--cyan-dim);">SITE VIP GUIDE</span>
     <h2>Modo.us VIP Guide</h2>
     <p>Earn Loyalty Points and Modo Stars, find the best grinding games, and reach Silver VIP for 40+ free SC.</p>
     <div class="guide-card-footer">Read guide →</div>
